@@ -8,6 +8,12 @@ INSTALL_ARCH=${ARCH:-amd64}
 
 INSTALL_DIR=/usr/local/bin
 
+check_packages() {
+  if ! dpkg -s "$@" >/dev/null 2>&1; then
+    apt-get update -y
+    apt-get -y install --no-install-recommends "$@"
+  fi
+}
 
 install_binaries() {
 
@@ -19,18 +25,18 @@ install_binaries() {
 
     for _comp in cli server; do
         echo "Fetching Toxiproxy-${_comp} version=${INSTALL_VERSION}, arch=${INSTALL_ARCH}"
-        sudo wget -O ${INSTALL_DIR}/toxiproxy-${_comp} "${_url}/toxiproxy-${_comp}-linux-${INSTALL_ARCH}"
-        sudo chmod +x ${INSTALL_DIR}/toxiproxy-${_comp}
+        curl -sSL -o ${INSTALL_DIR}/toxiproxy-${_comp} "${_url}/toxiproxy-${_comp}-linux-${INSTALL_ARCH}"
+        chmod +x ${INSTALL_DIR}/toxiproxy-${_comp}
     done
 }
 
 install_init() {
-    sudo tee /usr/local/share/toxiproxy-server-init.sh << 'EOF'
+    tee /usr/local/share/toxiproxy-server-init.sh << 'EOF'
 #!/bin/sh
 set -e
 
 echo "Starting Toxiproxy Server version=${VERSION}"
-sudo /usr/local/bin/toxiproxy-server  >/tmp/toxiproxy-server.log 2>&1
+/usr/local/bin/toxiproxy-server  >/tmp/toxiproxy-server.log 2>&1
 
 set +e
 
@@ -39,10 +45,11 @@ set +e
 exec "$@"
 EOF
 
-    sudo chmod +x /usr/local/share/toxiproxy-server-init.sh
-    sudo chown ${USERNAME}:root /usr/local/share/toxiproxy-server-init.sh
+    chmod +x /usr/local/share/toxiproxy-server-init.sh
+    chown ${USERNAME}:root /usr/local/share/toxiproxy-server-init.sh
 }
 
 
+check_packages curl ca-certificates
 install_binaries
 install_init
