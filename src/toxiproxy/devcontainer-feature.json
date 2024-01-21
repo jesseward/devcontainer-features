@@ -1,0 +1,30 @@
+{
+    "name": "Toxiproxy",
+    "id": "toxiproxy",
+    "version": "1.0.0",
+    "description": "Provides Shopify's Toxiproxy server and associated cli tool.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "v2.7.0"
+            ],
+            "default": "latest",
+            "description": "Toxiproxy installation target"
+        },
+        "arch": {
+            "type": "string",
+            "proposals": [
+                "amd64",
+                "arm64"
+            ],
+            "default": "amd64",
+            "description": "The architecture of the Toxiproxy Linux binary to use"
+        }
+    },
+    "entrypoint": "/usr/local/share/toxiproxy-server-init.sh",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
