@@ -50,6 +50,6 @@ EOF
 }
 
 
-check_packages curl
+check_packages curl ca-certificates
 install_binaries
 install_init
