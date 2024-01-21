@@ -8,6 +8,12 @@ INSTALL_ARCH=${ARCH:-amd64}
 
 INSTALL_DIR=/usr/local/bin
 
+check_packages() {
+  if ! dpkg -s "$@" >/dev/null 2>&1; then
+    apt-get update -y
+    apt-get -y install --no-install-recommends "$@"
+  fi
+}
 
 install_binaries() {
 
@@ -44,5 +50,6 @@ EOF
 }
 
 
+check_packages curl
 install_binaries
 install_init
