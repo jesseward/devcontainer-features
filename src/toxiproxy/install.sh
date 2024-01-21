@@ -19,7 +19,7 @@ install_binaries() {
 
     for _comp in cli server; do
         echo "Fetching Toxiproxy-${_comp} version=${INSTALL_VERSION}, arch=${INSTALL_ARCH}"
-        wget -O ${INSTALL_DIR}/toxiproxy-${_comp} "${_url}/toxiproxy-${_comp}-linux-${INSTALL_ARCH}"
+        curl -sSL -o ${INSTALL_DIR}/toxiproxy-${_comp} "${_url}/toxiproxy-${_comp}-linux-${INSTALL_ARCH}"
         chmod +x ${INSTALL_DIR}/toxiproxy-${_comp}
     done
 }
