@@ -19,18 +19,18 @@ install_binaries() {
 
     for _comp in cli server; do
         echo "Fetching Toxiproxy-${_comp} version=${INSTALL_VERSION}, arch=${INSTALL_ARCH}"
-        sudo wget -O ${INSTALL_DIR}/toxiproxy-${_comp} "${_url}/toxiproxy-${_comp}-linux-${INSTALL_ARCH}"
-        sudo chmod +x ${INSTALL_DIR}/toxiproxy-${_comp}
+        wget -O ${INSTALL_DIR}/toxiproxy-${_comp} "${_url}/toxiproxy-${_comp}-linux-${INSTALL_ARCH}"
+        chmod +x ${INSTALL_DIR}/toxiproxy-${_comp}
     done
 }
 
 install_init() {
-    sudo tee /usr/local/share/toxiproxy-server-init.sh << 'EOF'
+    tee /usr/local/share/toxiproxy-server-init.sh << 'EOF'
 #!/bin/sh
 set -e
 
 echo "Starting Toxiproxy Server version=${VERSION}"
-sudo /usr/local/bin/toxiproxy-server  >/tmp/toxiproxy-server.log 2>&1
+/usr/local/bin/toxiproxy-server  >/tmp/toxiproxy-server.log 2>&1
 
 set +e
 
@@ -39,8 +39,8 @@ set +e
 exec "$@"
 EOF
 
-    sudo chmod +x /usr/local/share/toxiproxy-server-init.sh
-    sudo chown ${USERNAME}:root /usr/local/share/toxiproxy-server-init.sh
+    chmod +x /usr/local/share/toxiproxy-server-init.sh
+    chown ${USERNAME}:root /usr/local/share/toxiproxy-server-init.sh
 }
 
 
