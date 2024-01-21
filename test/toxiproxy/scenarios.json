@@ -1,9 +1,10 @@
 {
-    "hello": {
+    "version_270": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "user": "vscode",
         "features": {
-            "hello": {
-                "greeting": "hello"
+            "toxiproxy": {
+                "version": "v2.7.0"
             }
         }
     }
