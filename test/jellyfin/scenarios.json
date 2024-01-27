@@ -1,0 +1,20 @@
+{
+    "version_10.8.13_debian": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "user": "vscode",
+        "features": {
+            "jellyfin": {
+                "version": "10.8.13"
+            }
+        }
+    },
+    "version_10.8.13_ubuntu": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "user": "vscode",
+        "features": {
+            "jellyfin": {
+                "version": "10.8.13"
+            }
+        }
+    }
+}
