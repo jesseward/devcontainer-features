@@ -1,0 +1,29 @@
+{
+    "name": "Jellyfin",
+    "id": "jellyfin",
+    "version": "1.0.0",
+    "description": "Provides the Jellyfin media and Web UI servers.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "10.8.13"
+            ],
+            "default": "10.8.13",
+            "description": "Jellyfin installation target version"
+        },
+        "arch": {
+            "type": "string",
+            "proposals": [
+                "amd64",
+                "arm64"
+            ],
+            "default": "amd64",
+            "description": "Jellyfin installation architecture"
+        }
+    },
+    "entrypoint": "/usr/local/share/jellyfin-init.sh",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
