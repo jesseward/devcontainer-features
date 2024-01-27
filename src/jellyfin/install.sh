@@ -18,7 +18,9 @@ install_binaries() {
     _release="jellyfin_${INSTALL_VERSION}_${JELLYFIN_ARCH}.tar.gz"
     mkdir -p ${JELLYFIN_HOME}
     cd ${JELLYFIN_HOME}
+    echo "Fetching Jellyfin version=${_release}"
     curl -LO https://repo.jellyfin.org/releases/server/linux/stable/combined/${_release}
+    echo "Extracting Jellyfin version=${_release} to path=${JELLYFIN_HOME}"
     tar xvzf ${_release}
     rm ${_release}
     ln -s jellyfin_${INSTALL_VERSION} jellyfin
