@@ -1,7 +1,7 @@
 {
     "name": "Jellyfin",
     "id": "jellyfin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Provides the Jellyfin media and Web UI servers.",
     "options": {
         "version": {
