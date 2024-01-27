@@ -4,7 +4,7 @@
         "user": "vscode",
         "features": {
             "jellyfin": {
-                "version": "v10.8.13"
+                "version": "10.8.13"
             }
         }
     },
@@ -13,7 +13,7 @@
         "user": "vscode",
         "features": {
             "jellyfin": {
-                "version": "v10.8.13"
+                "version": "10.8.13"
             }
         }
     }
