@@ -52,6 +52,6 @@ EOF
 }
 
 
-check_packages curl ffmpeg
+check_packages curl ca-certificates ffmpeg
 install_binaries
 install_init
