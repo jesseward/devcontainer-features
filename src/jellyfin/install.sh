@@ -25,7 +25,7 @@ install_binaries() {
     rm ${_release}
     ln -s jellyfin_${INSTALL_VERSION} jellyfin
     mkdir -p data cache config log
-    find ${JELLYFIN_HOME} -type d -execdir chmod 755 "{}" \;
+    PATH=/usr/bin find ${JELLYFIN_HOME} -type d -execdir chmod 755 "{}" \;
     chmod -R a+w $JELLYFIN_HOME
 }
 
