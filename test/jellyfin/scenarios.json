@@ -1,5 +1,5 @@
 {
-    "version_10.8.13_debian": {
+    "version_10.9.1_debian": {
         "image": "mcr.microsoft.com/devcontainers/base:debian",
         "user": "vscode",
         "features": {
@@ -8,7 +8,7 @@
             }
         }
     },
-    "version_10.8.13_ubuntu": {
+    "version_10.9.1_ubuntu": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "user": "vscode",
         "features": {
